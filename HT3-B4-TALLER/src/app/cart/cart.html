@@ -1,0 +1,39 @@
+<div class="cart-container">
+  <h2>Carrito de Compras</h2>
+
+  <div *ngIf="items.length === 0" class="cart-empty">
+    <p>El carrito está vacío.</p>
+  </div>
+
+  <div *ngIf="items.length > 0">
+    <div class="cart-items-list">
+      <div *ngFor="let item of items" class="cart-item">
+        <div class="item-details">
+          <span class="item-name">{{ item.product.name }}</span>
+          <div class="item-price">Precio: ${{ item.product.price.toFixed(2) }}</div>
+        </div>
+        
+        <div class="item-quantity">
+          <label>Cant:</label>
+          <input 
+            type="number" 
+            min="1" 
+            [value]="item.amount"
+            (change)="modifyQuantity(item.product.id, $event)">
+        </div>
+
+        <div class="item-subtotal">
+          Subtotal: ${{ item.product.price | subtotalcart: item.amount }}
+        </div>
+        
+        <button class="btn-eliminate" (click)="eliminate(item.product.id)">Eliminar</button>
+      </div>
+    </div>
+
+    <hr>
+    
+    <div class="cart-total">
+      <h3>Total a Pagar: <span>${{ items | totalcart }}</span></h3>
+    </div>
+  </div>
+</div>

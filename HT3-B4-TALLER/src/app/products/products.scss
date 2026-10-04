@@ -1,0 +1,95 @@
+$primary-color: #2563eb;
+$primary-hover: #1d4ed8;
+$text-color: #1f2937;
+$bg-card: #ffffff;
+$border-color: #e5e7eb;
+
+.products-container {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+
+  h2 {
+    color: $text-color;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    border-bottom: 2px solid $border-color;
+    padding-bottom: 0.5rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+
+    .product-card {
+      background-color: $bg-card;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-info {
+        .product-title {
+          font-weight: 600;
+          color: $text-color;
+          font-size: 1.1rem;
+          margin-bottom: 0.25rem;
+        }
+
+        .product-price {
+          color: $primary-color;
+          font-weight: 700;
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+          color: #6b7280;
+          font-size: 0.875rem;
+          line-height: 1.4;
+          margin-bottom: 1rem;
+        }
+      }
+
+      .product-img {
+          width: 100%;
+          height: 160px;
+          object-fit: contain;
+          background-color: #f9fafb;
+          border-radius: 6px;
+          margin-bottom: 0.75rem;
+      }
+
+      .btn-add {
+        width: 100%;
+        background-color: $primary-color;
+        color: #ffffff;
+        border: none;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: $primary-hover;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+}
